@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 200px;
+				height: 30px;
+				background: orange;
+				text-align: center;
+			}
+			ul{
+				list-style: none;
+				display: none;
+			}
+			li{
+				width: 200px;
+				height: 30px;
+				background: gold;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="oDiv">
+			图片
+		</div>
+		
+		<ul id="oUl">
+			<li>旅游</li>
+			<li>游戏</li>
+			<li>美食</li>
+		</ul>
+		
+		<script type="text/javascript">
+			var oDiv = document.getElementById("oDiv");
+			var oUl = document.getElementById("oUl");
+			var oLi = oUl.getElementsByTagName("li");
+			
+			oDiv.onclick = function(){
+				oUl.style.display = "block";
+			}
+			
+			oLi[0].onclick = function(){
+				var oDivStr = oDiv.innerHTML;
+				var oLiStr = this.innerHTML;
+				
+				oDiv.innerHTML = oLiStr;
+				this.innerHTML = oDivStr;
+			}
+			
+			
+		</script>
+	</body>
+</html>

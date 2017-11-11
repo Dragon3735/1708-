@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 400px;
+				height: 400px;
+				background: yellowgreen;
+			}
+			#box2{
+				width: 300px;
+				height: 300px;
+				background: skyblue;
+			}
+			#box3{
+				width: 200px;
+				height: 200px;
+				background: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">box1
+			<div id="box2">box2
+				<div id="box3">
+					box3
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var box1 = document.getElementById("box1");
+			var box2 = document.getElementById("box2");
+			var box3 = document.getElementById("box3");
+			
+			box1.addEventListener("click",function(){
+				alert("我是box1，捕获阶段");
+				
+			},true);
+			box2.addEventListener("click",function(){
+				alert("我是box2，捕获阶段");
+				
+			},true);
+			box3.addEventListener("click",function(){
+				alert("我是box3，捕获阶段");
+				
+			},true);
+			
+			document.body.addEventListener("click",function(){
+				alert("我是body，捕获阶段");
+				
+			},true);
+			document.addEventListener("click",function(){
+				alert("我是document，捕获阶段");
+				
+			},true);
+			window.addEventListener("click",function(){
+				alert("我是window，捕获阶段");
+				
+			},true);
+			
+			box1.addEventListener("click",function(){
+				alert("我是box1，冒泡阶段");
+				
+			},false);
+			box2.addEventListener("click",function(){
+				alert("我是box2，冒泡阶段");
+				
+			},false);
+			box3.addEventListener("click",function(){
+				alert("我是box3，冒泡阶段");
+				
+			},false);
+			
+			document.body.addEventListener("click",function(){
+				alert("我是body，冒泡阶段");
+				
+			},false);
+			document.addEventListener("click",function(){
+				alert("我是document，冒泡阶段");
+				
+			},false);
+			window.addEventListener("click",function(){
+				alert("我是window，冒泡阶段");
+				
+			},false);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#oDiv1{
+				width: 200px;
+				height: 30px;
+				background: orange;
+				text-align: center;
+			}
+			#oDiv2{
+				width: 200px;
+				height: 150px;
+				background: green;
+				text-align: center;
+				display: none;
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="oDiv1">一级菜单</div>
+		<div id="oDiv2">二级菜单</div>
+		
+		<script type="text/javascript">
+			
+			var oDiv1 = document.getElementById("oDiv1");
+			var oDiv2 = document.getElementById("oDiv2");
+			var timer = null;
+			
+			
+			oDiv1.onmouseover = function(){
+				clearTimeout(timer);
+				oDiv2.style.display = "block";
+			}
+			
+			oDiv1.onmouseout = function(){
+				timer=setTimeout(function(){
+					oDiv2.style.display = "none";
+				},2000)
+				
+			}
+			oDiv2.onmouseover = function(){
+				clearTimeout(timer);
+				this.style.display = "block";
+			}
+			
+			oDiv2.onmouseout = function(){
+				timer=setTimeout(function(){
+					oDiv2.style.display = "none";
+				},2000)
+				
+			}
+			
+		</script>
+	</body>
+</html>
