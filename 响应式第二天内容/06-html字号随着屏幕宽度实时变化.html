@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html{
+				font-size: 30px;
+			}
+			div{
+				float: left;
+				border: 1px solid black;
+				width: 33.3333%;
+				height: 6.6666rem;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		
+		
+		
+		<script type="text/javascript">
+			
+			window.onresize = setFontSize;
+			
+			setFontSize();
+			
+			function setFontSize(){
+	//			设计师给你psd图,600px宽. 600px宽度下font-size我们设置30px
+	//			所以当前的字号就要按照比例设置	
+				
+				var windowWidth = document.documentElement.clientWidth;
+				
+				 document.documentElement.style.fontSize = 30 * (windowWidth / 600) + "px";
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
