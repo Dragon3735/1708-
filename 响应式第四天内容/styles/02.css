@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+nav li {
+  width: 200px;
+  height: 30px;
+  float: left;
+  background: orange;
+  margin-right: 30px;
+}
+nav li:hover {
+  background: #aabbcc;
+}

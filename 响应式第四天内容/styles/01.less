@@ -1,0 +1,75 @@
+//变量的演示
+@a:#aabbcc;
+@font24: 24px;
+@size400: 400px;
+
+
+.oDiv{
+    background: @a;
+    width: @size400;
+    height: @size400;
+    font-size: @font24;
+}
+
+@str: "我是内容";
+
+p::before{
+    content: @str;
+}
+
+
+//混合：定义一些通用的属性为一个class，然后在另一个class中去调用这些属性
+.borderRed{
+    border-right: 1px solid red;
+}
+.widthHeight{
+    width: 200px;
+    height: 200px;
+}
+.backOrange{
+    background: orange;
+}
+
+.oPBorder{
+    background: orange;
+    .borderRed;
+    .widthHeight;
+}
+
+//带参数的混合，在调用的时候传递参数，也可以设置一个默认值
+.font-s (@c: 20px){
+    font-size: @c;
+}
+.oDiv1{
+    .borderRed;
+    .widthHeight;
+    .backOrange;
+    .font-s;
+    
+}
+
+//上面有部分类名，如果不想暴露到css文件中，我们可以加上（）
+//.widthHeight (){
+//  width: 200px;
+//  height: 200px;
+//}
+//.backOrange (){
+//  background: orange;
+//}
+
+
+//多个参数可以使用@arguments变量
+.boxShow (@x: 0,@y: 0,@blue: 0,@color :#000){
+    box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+}
+
+
+.oDiv2{
+    .borderRed;
+    .widthHeight;
+    .backOrange;
+    .font-s(40px);
+    .boxShow(5px,5px,5px,purple);
+}

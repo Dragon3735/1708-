@@ -1,0 +1,42 @@
+.oDiv {
+  background: #aabbcc;
+  width: 400px;
+  height: 400px;
+  font-size: 24px;
+}
+p::before {
+  content: "我是内容";
+}
+.borderRed {
+  border-right: 1px solid red;
+}
+.widthHeight {
+  width: 200px;
+  height: 200px;
+}
+.backOrange {
+  background: orange;
+}
+.oPBorder {
+  background: orange;
+  border-right: 1px solid red;
+  width: 200px;
+  height: 200px;
+}
+.oDiv1 {
+  border-right: 1px solid red;
+  width: 200px;
+  height: 200px;
+  background: orange;
+  font-size: 20px;
+}
+.oDiv2 {
+  border-right: 1px solid red;
+  width: 200px;
+  height: 200px;
+  background: orange;
+  font-size: 40px;
+  box-shadow: 5px 5px 5px purple;
+  -webkit-box-shadow: 5px 5px 5px purple;
+  -moz-box-shadow: 5px 5px 5px purple;
+}

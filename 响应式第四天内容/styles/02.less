@@ -1,0 +1,25 @@
+@width200: 200px;
+@height30: 30px;
+@color: #aabbcc;
+@colorO: orange;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+
+nav{
+    li{
+        width: @width200;
+        height: @height30;
+        float: left;
+        background: @colorO;
+        margin-right: 10px+20;
+        &:hover{
+            background: @color;
+        }
+    }
+}
