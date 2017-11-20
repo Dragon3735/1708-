@@ -1,0 +1,174 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+em{
+	font-style: normal;
+}
+/*购物车框架样式*/
+.shop{
+	width: 1090px;
+	margin: 0 auto;
+	margin-top: 50px;
+	font-size: 15px;
+}
+.shop-list{
+	width: 100%;
+	height: 36px;
+	border: 1px solid #ddd;
+	margin-top: 10px;
+}
+.shop-list-check{
+	display: inline-block;
+	float: left;
+	width: 134px;
+	height: 100%;
+	color: #ddd;
+}
+.shop-list-check input{
+	width: 17px;
+	height: 18px;
+	margin: 10px 7px 0 15px;
+	float: left;
+}
+.shop-list-check i{
+	width: 30px;
+	height: 18px;
+	margin: 10px 0 0 0;
+	float: left;
+}
+.shop-list-mas{
+	display: inline-block;
+	float: left;
+	width: 442px;
+	height: 100%;
+	line-height: 36px;
+	color: #ddd;
+}
+.shop-list-one{
+	display: inline-block;
+	float: left;
+	width: 150px;
+	height: 100%;
+	line-height: 36px;
+	color: #ddd;
+}
+.shop-list-s{
+	display: inline-block;
+	float: left;
+	width: 128px;
+	height: 100%;
+	line-height: 36px;
+	color: #ddd;
+}
+.shop-list em{
+	float: left;
+	width: 128px;
+	height: 100%;
+	line-height: 36px;
+	color: #ddd;
+}
+.shop-list span{
+	float: left;
+	width: 107px;
+	height: 100%;
+	line-height: 36px;
+	color: #ddd;
+}
+
+/*数据内容样式*/
+.goods{
+	width: 1088px;
+	height: 121px;
+	border:1px solid #ddd;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.goods-box{
+	float: left;
+	width: 525x;
+	height: 100%;
+}
+.goods-box img{
+	width: 80px;
+	height: 80px;
+	margin-top: 20px;
+	float: left;
+}
+.goods-box input{
+	width: 17px;
+	height: 18px;
+	margin: 50px 7px 0 15px;
+	float: left;
+}
+.goods-box p{
+	float: left;
+	color: #333;
+	margin-top: 25px;
+	margin-left: 17px;
+}
+.goods_one{
+	width: 108px;
+	height: 80px;
+	float: left;
+	text-align: center;
+	padding-top: 25px;
+	font-weight: bold;
+	padding-right: 20px;
+}
+.goods-lists{
+	width: 120px;
+	height: 80px;
+	float: left;
+	padding-top: 25px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.left-button{
+	width: 22px;
+	height: 22px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 22px;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	float: left;
+}
+.right-button{
+	width: 22px;
+	height: 22px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 22px;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	float: left;
+}
+.center-text{
+	width: 43px;
+	height: 22px;
+	text-align: center;
+	float: left;
+	border-left: none;
+	border-right: none;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.goods_sum{
+	width: 108px;
+	height: 80px;
+	text-align: center;
+	float: left;
+	padding-top: 25px;
+	font-weight: bold;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+.goods_op{
+	float: left;
+	width: 85px;
+	height: 80px;
+	padding: 25px 20px 0 31px;
+	cursor: pointer;
+}
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的购物车</title>
+		<link rel="stylesheet" href="css/cart.css" />
+	</head>
+	<body>
+		<div class="shop" id="shop">
+			<h1>我的购物车</h1>
+			<div class="shop-list">
+				<div class="shop-list-check">
+					<input type="checkbox" id="selectAll"/>
+					<i>全选</i>
+				</div>
+				
+				<div class="shop-list-mas">商品信息</div>
+				<div class="shop-list-one">单价（元）</div>
+				<div class="shop-list-s">数量</div>
+				<em>金额（元）</em>
+				<span>操作</span>
+			</div>
+		
+		<!--<div class="goods">
+			<div class="goods-box">
+				<input type="checkbox" class="chkbox"/>
+				<input type="hidden" class="goods_id" value="商品id"/>
+				<img src="http://imgs-qn.iliangcang.com/ware/goods/big/2/257/257557.jpg?t=1497600292"/>
+				<p>商品简介:TUPLUS ONE「途加1号」旅行箱</p>
+			</div>
+			<div class="goods_one">￥1259</div>
+			<div class="goods-lists">
+				<span class="left-button">-</span>
+				<input type="text" class="center-text" value="1"/>
+				<span class="right-button">+</span>
+			</div>
+			<div class="goods_sum">￥1259</div>
+			<div class="goods_op">
+				<span>删除</span>
+			</div>
+		</div>-->
+		
+		</div>
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			$.ajax({
+				"url": "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.getItem("token"),
+				"type": "GET",
+				"dataType": "json",
+				"success" : function(response){
+					console.log(response)
+					//判断购物车中有没有商品
+					if(response.data.length > 0){
+						
+						for(var i=0;i<response.data.length;i++){
+							var obj = response.data[i];
+							
+							var html = `<div class="goods">
+										<div class="goods-box">
+											<input type="checkbox" class="chkbox"/>
+											<input type="hidden" class="goods_id" value="${obj.goods_id}"/>
+											<img src="${obj.goods_thumb}"/>
+											<p>商品简介:${obj.goods_name}</p>
+										</div>
+										<div class="goods_one">￥${obj.goods_price}</div>
+										<div class="goods-lists">
+											<span class="left-button">-</span>
+											<input type="text" class="center-text" value="${obj.goods_number}"/>
+											<span class="right-button">+</span>
+										</div>
+										<div class="goods_sum">￥${obj.goods_price * obj.goods_number }</div>
+										<div class="goods_op">
+											<span>删除</span>
+										</div>
+									</div>`;
+							
+							$("#shop").html( $("#shop").html() + html );
+							
+						}
+						
+					}
+					
+					
+				}
+				
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>
