@@ -82,6 +82,41 @@
 		})
 			
 			
+		$("#cart").click(function(){
+			
+			//判断当前是否登录，没登录无法加入购物车，提示用户，并跳转到登录页面，把当前路径发送给登录页面
+			if(!localStorage.getItem("token")){
+				alert("请登录后才能加入购物车！");
+				location.href = "login.html#callback=" + location.href;
+			}
+			
+//			console.log(goodId[1]); 
+
+			//获取本地存储中的商品数量信息
+			var goods_number = localStorage.getItem("cart"+goodId[1]);
+			
+			//如果有 则是买过！让之前的数量+1  如果没有就是第一次购买，那么数量是1
+			goods_number = goods_number ? parseInt(goods_number)+1 : 1;
+			
+			$.ajax({
+				"url":"http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.getItem("token"),
+				"type":"POST",
+				"dataType": "json",
+				"data": {
+					"goods_id" : goodId[1],
+					"number"   : goods_number
+				},
+				"success": function(response){
+					console.log(response);
+					
+					//成功后存储商品信息购买数量到本地存储中
+					localStorage.setItem("cart"+ goodId[1],goods_number);
+					//跳转到购物车页面
+					location.href = "cart.html";
+				}
+			});
+			
+		})
 		</script>
 	</body>
 </html>

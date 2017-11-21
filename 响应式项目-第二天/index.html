@@ -46,9 +46,14 @@
 	<script type="text/javascript">
 		//判断当前用户已经登录则显示用户名，否则显示注册，登录
 		if( localStorage.getItem("token") ){
-			$(".login").html("<span>用户名是：" + localStorage.getItem("username") + "</span><button>取消登录</button>");
+			$(".login").html("<span>用户名是：" + localStorage.getItem("username") + "</span><button id='close'>取消登录</button>");
 		}
 		
+		$("#close").click(function(){
+			
+			localStorage.clear();
+			$(".login").html('<a href="register.html">注册</a><a href="login.html">登录</a>');
+		})
 		
 		//页面导航：分类列表功能
 		$.get("http://h6.duchengjiu.top/shop/api_cat.php",function(response){
@@ -87,7 +92,6 @@
 			
 			window.location.href = "detail.html?goods_id=" + searchStr;
 		})
-		
 		
 	</script>
 </html>
