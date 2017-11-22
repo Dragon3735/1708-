@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/paging.css"/>
+	</head>
+	<body>
+		<!--商品展示-->
+		<ul class="shop" id="shop">
+			
+		</ul>
+		
+		<!--按钮组-->
+		<div class="button" id="button">
+			<em id="ButtonPrev">上一页</em>
+			<div class="button-center">
+				<div id="ButtonCenter"></div>
+			</div>
+			<em id="ButtonNext">下一页</em>
+		</div>
+		
+		
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//信号量
+			var page = 1;
+			showShop(page);
+			
+			
+			function showShop(page){
+				
+				$.ajax({
+					"url":"http://h6.duchengjiu.top/shop/api_goods.php?page="+page+"&pagesize=20",
+					"type":"GET",
+					"dataType": "json",
+					"success": function(response){
+						console.log(response);
+						
+						//添加数据
+						for(var i=0;i<response.data.length;i++){
+							var obj = response;
+							
+							$("#shop").append('<li><img src="' + obj.data[i].goods_thumb + '" alt="" /><p><a href="detail.html?goods_id='+obj.data[i].goods_id+'">商品名称:' +obj.data[i].goods_name+ '</a></p><p>商品简介:' +obj.data[i].goods_desc+  '</p><p class="price">商品价格:￥' +obj.data[i].price+  '</p><button goodid="' +obj.data[i].goods_id + '" class="oBtn">购物车</button></li>');
+						}
+						//分页
+						for(var j=0;j<response.page.page_count;j++){
+							$("#ButtonCenter").append( $('<span>'+(j+1)+'</span>') );
+						}
+					}
+				});
+				
+			}
+			
+			$("#ButtonPrev").click(function(){
+				//信号量增加
+				page--;
+				//范围
+				if(page <= 1) page = 1;
+				//清空数据
+				$("#shop").html("");
+				$("#ButtonCenter").html('');
+				showShop(page);
+				
+				ButtonCenter.style.marginLeft = (page-1)* -52 + "px";
+			})
+			
+			$("#ButtonNext").click(function(){
+				//信号量增加
+				page++;
+				//范围
+				
+				//清空数据
+				$("#shop").html("");
+				$("#ButtonCenter").html('');
+				showShop(page);
+				
+				ButtonCenter.style.marginLeft = (page-1)* -52 + "px";
+			})
+			
+			//分页的点击事件
+			$("#ButtonCenter").click(function(event){
+				event = event || window.event;
+				var target = event.target || event.srcElement;
+//				console.log(target.nodeName)
+				if( target.nodeName === "SPAN" ){
+					//得到当前分页的内容，存入信号量
+					page = target.innerText;
+					$("#shop").html('');
+					$("#ButtonCenter").html('');
+					ButtonCenter.style.marginLeft = (page-1) * -52 +"px";
+					showShop(page);
+					
+				}
+				
+				
+			})
+			
+		</script>
+	</body>
+</html>
