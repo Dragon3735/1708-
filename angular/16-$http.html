@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="Aaa">
+			<span> {{ name }} </span>
+		</div>
+		
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var m1 = angular.module("myApp",[]);
+			
+			m1.controller("Aaa",function($scope,$http){
+				$scope.name = "hello";
+				
+				
+				$http({
+					method: 'GET',
+					url: 'http://h6.duchengjiu.top/shop/api_goods.php'
+				}).then(function(response){
+					console.log(response.data.data);
+					$scope.dataList = response.data.data;
+				})
+				
+				
+			})
+			
+		</script>
+	</body>
+</html>
